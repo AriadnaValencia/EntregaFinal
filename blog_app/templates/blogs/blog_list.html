@@ -1,0 +1,9 @@
+{% if message %}
+  <p>{{ message }}</p>
+{% else %}
+  {% for blog in blogs %}
+    <h2>{{ blog.title }}</h2>
+    <p>{{ blog.subtitle }}</p>
+    <a href="{% url 'blog_detail' blog.id %}">Leer más</a>
+  {% endfor %}
+{% endif %}
