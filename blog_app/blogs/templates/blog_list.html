@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog List</title>
+    <title>El blog de Churi</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
@@ -12,6 +12,12 @@
     <ul>
         {% for blog in blogs %}
             <li>{{ blog.title }}</li>
+            <p>{{ blog.subtitle }}</p>
+        <a href="{% url 'blog_detail' blog.id %}">Leer más</a>
+    {% empty %}
+        <p>No hay páginas aún.</p>
+    {% endfor %}
+{% endblock %}
         {% endfor %}
     </ul>
 </body>
